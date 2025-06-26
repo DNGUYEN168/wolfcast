@@ -1,24 +1,19 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+window.addEventListener("DOMContentLoaded", () => {
+  const bar = document.getElementById("progressBar") as HTMLProgressElement;
+  const wrapper = document.getElementById("loadingBar")!;
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += 1;
+    bar.value = progress;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+    if (progress >= bar.max) {
+      clearInterval(interval);
+      wrapper.style.opacity = "0";
+      wrapper.style.transition = "opacity 0.5s ease";
+      setTimeout(() => {
+        wrapper.style.display = "none";
+      }, 500);
+    }
+  }, 30);
+});

@@ -1,13 +1,30 @@
 <!doctype html>
 <html lang="en">
+  
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" /> <!-- nes style sheet -->
+    <link rel="stylesheet" href="./src/style.css" /> <!-- my style sheet -->
+
+    <style>
+      html, body, pre, code, kbd, samp {
+      font-family: "Press Start 2P", monospace;
+      }
+    </style>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+
+    <title>WoflenRayCaster</title>
   </head>
+
+  <div id="loadingBar">
+    <progress id="progressBar" class="nes-progress is-error" value="0" max="100"></progress>
+  </div>
+
+  
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
+  
 </html>
