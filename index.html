@@ -17,14 +17,56 @@
     <title>WoflenRayCaster</title>
   </head>
 
-  <div id="loadingBar">
-    <progress id="progressBar" class="nes-progress is-error" value="0" max="100"></progress>
-  </div>
+  
 
-  
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+
+    <div id="loadingBar"> <!-- disappears after fully loaded -->
+      <progress id="progressBar" class="nes-progress is-error" value="0" max="100"></progress>
+      <span id= "loadText" class="nes-text">Loading.</span>
+    </div>
+
+
+    <div id="mainContent" style="display: none;"> <!-- main content -->
+      
+      <div id="titleCard" class="nes-container with-title is-centered">
+        <p class="title">Dat Nguyen's</p>
+        <p>Wolfenstein Like RayCaster</p>
+      </div>
+
+      <div id="RadioButtons">
+        <label>
+          <input id="Start" type="radio" class="nes-radio" name="answer" checked />
+          <span>Start</span>
+        </label>
+
+        <label>
+          <input  id="Credits" type="radio" class="nes-radio" name="answer"/>
+          <span>Credits</span>
+        </label>
+
+        <label>
+          <input  id="Controls" type="radio" class="nes-radio" name="answer"/>
+          <span>Controls</span>
+        </label>
+
+        <label>
+          <input id="More" type="radio" class="nes-radio" name="answer"/>
+          <span>More</span>
+        </label>
+      </div>
+
+      
+
+
+
+
+
+    </div>
+
+
+
+    <script type="module" src="/src/FrontPage/main.ts"></script>
   </body>
-  
+
 </html>
