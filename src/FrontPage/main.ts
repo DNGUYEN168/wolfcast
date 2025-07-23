@@ -1,8 +1,21 @@
 // Global Button Vars 
 
+
+
 const radios = Array.from(document.querySelectorAll('#RadioButtons input[type="radio"]'));
 const RADIOCOUNT = radios.length; // number of buttons 
+
+const ButtonIDs: Record<string, number> = {};
 var currentRadioIndex = 0;
+
+radios.forEach(button => {
+  ButtonIDs[button.id] = currentRadioIndex;
+  currentRadioIndex++;
+});
+
+currentRadioIndex = 0; // reset
+
+
 
 function HandleEnter(){
   const selected = document.querySelector('#RadioButtons input[type="radio"]:checked');
@@ -19,7 +32,8 @@ function wrapIndex(index: number, length: number) {
 
 // assigning action to each button
 radios.forEach((radio) => {
-  radio.addEventListener("click", () => {
+  radio.addEventListener("click", (e) => {
+    console.log
     console.log("Clicked radio:", radio.id);
       // You can run any function here, like starting a game or showing a new screen
   });
@@ -28,17 +42,14 @@ radios.forEach((radio) => {
 window.addEventListener("keydown", (e) => {
   // console.log(radios[currentIndex].checked); // even though it doesnt it acutally does 
   switch (e.key) {
-    case "ArrowUp":
     case "w":
     case "W":
       currentRadioIndex = wrapIndex(currentRadioIndex - 1, RADIOCOUNT); // wrap from 0-3
       break;
-    case "ArrowDown":
     case "s":
     case "S":
       currentRadioIndex = wrapIndex(currentRadioIndex + 1, RADIOCOUNT); 
       break;
-
     case "Enter":
       HandleEnter();
       break;
@@ -98,6 +109,7 @@ window.addEventListener("mousemove", (e) =>{ // listen to mouse move
     if (label) {
       const radio = label.querySelector("input[type='radio']"); // do stuff 
       radio.checked = true;
+      currentRadioIndex = ButtonIDs[radio?.id];
     }
   }
 
