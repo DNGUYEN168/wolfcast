@@ -16,7 +16,6 @@ radios.forEach(button => {
 currentRadioIndex = 0; // reset
 
 
-
 function HandleEnter(){
   const selected = document.querySelector('#RadioButtons input[type="radio"]:checked');
     if (selected && selected.checkVisibility()) {
@@ -61,6 +60,7 @@ window.addEventListener("keydown", (e) => {
 
 
 window.addEventListener("DOMContentLoaded", () => {
+
   const bar = document.getElementById("progressBar") as HTMLProgressElement;
   const wrapper = document.getElementById("loadingBar")!;
   const loadTextspan = document.getElementById("loadText");
@@ -68,6 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let progress = 100; // change later on 
   let dotCount = 1;
+
   const interval = setInterval(() => {
     progress += 1;
     bar.value = progress;
